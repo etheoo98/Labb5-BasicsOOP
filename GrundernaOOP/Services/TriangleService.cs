@@ -7,14 +7,10 @@ public static class TriangleService
 {
     public static void PrintTriangleArray(Triangle[] triangles)
     {
-        var currentItem = 1;
-
-        foreach (var triangle in triangles)
+        for (var i = 0; i < triangles.Length; i++)
         {
-            Console.WriteLine($"{Lang.Headers["Triangle"]} #{currentItem}:");
-            PrintProperties(triangle);
-
-            currentItem++;
+            Console.WriteLine($"{Lang.Headers["Triangle"]} #{i+1}:");
+            PrintProperties(triangles[i]);
         }
     }
 

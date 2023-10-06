@@ -7,14 +7,10 @@ public static class CircleService
 {
     public static void PrintCircleArray(Circle[] circles)
     {
-        var currentItem = 1;
-
-        foreach (var circle in circles)
+        for (var i = 0; i < circles.Length; i++)
         {
-            Console.WriteLine($"{Lang.Headers["Circle"]} #{currentItem}:");
-            PrintProperties(circle);
-
-            currentItem++;
+            Console.WriteLine($"{Lang.Headers["Circle"]} #{i+1}:");
+            PrintProperties(circles[i]);
         }
     }
 
