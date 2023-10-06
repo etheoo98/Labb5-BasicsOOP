@@ -48,8 +48,8 @@ public class Triangle
     public double GetArea()
     {
         // Heron's formula: A = √[s(s - a)(s - b)(s - c)]
-        var s = (Sides[0] + Sides[1] + Sides[2]) / 2; // Semiperimeter
-        return Math.Sqrt(s * (s - Sides[0]) * (s - Sides[1]) * (s - Sides[2]));
+        var s = (SideA + SideB + SideC) / 2; // Semiperimeter
+        return Math.Sqrt(s * (s - SideA) * (s - SideB) * (s - SideC));
     }
 
     public (double AngleA, double AngleB, double AngleC) GetAngles()
@@ -62,16 +62,16 @@ public class Triangle
          */
 
         // a = arccos[(b² + c² - a²) / (2bc)]
-        var angleA = Math.Acos((Math.Pow(Sides[1], 2) + Math.Pow(Sides[2], 2) - Math.Pow(Sides[0], 2)) /
-                               (2 * Sides[1] * Sides[2]));
+        var angleA = Math.Acos((Math.Pow(SideB, 2) + Math.Pow(SideC, 2) - Math.Pow(SideA, 2)) /
+                               (2 * SideB * SideC));
 
         // b = arccos[(a² + c² - b²) / (2ac)]
-        var angleB = Math.Acos((Math.Pow(Sides[0], 2) + Math.Pow(Sides[2], 2) - Math.Pow(Sides[1], 2)) /
-                               (2 * Sides[0] * Sides[2]));
+        var angleB = Math.Acos((Math.Pow(SideA, 2) + Math.Pow(SideC, 2) - Math.Pow(SideB, 2)) /
+                               (2 * SideA * SideC));
 
         // c = arccos[(a² + b² - c²) / (2ab)]
-        var angleC = Math.Acos((Math.Pow(Sides[0], 2) + Math.Pow(Sides[1], 2) - Math.Pow(Sides[2], 2)) /
-                               (2 * Sides[0] * Sides[1]));
+        var angleC = Math.Acos((Math.Pow(SideA, 2) + Math.Pow(SideB, 2) - Math.Pow(SideC, 2)) /
+                               (2 * SideA * SideB));
 
         // Convert angles from radians to degrees.
         angleA = angleA * 180 / Math.PI;
@@ -91,12 +91,12 @@ public class Triangle
          */
 
         // If all sides are equal.
-        if (Math.Abs(Sides[0] - Sides[1]) < epsilon && Math.Abs(Sides[1] - Sides[2]) < epsilon)
+        if (Math.Abs(SideA - SideB) < epsilon && Math.Abs(SideB - SideC) < epsilon)
             return TypeOfTriangle.Equilateral;
 
         // If two sides are equal.
-        if (Math.Abs(Sides[0] - Sides[1]) < epsilon || Math.Abs(Sides[1] - Sides[2]) < epsilon ||
-            Math.Abs(Sides[0] - Sides[2]) < epsilon)
+        if (Math.Abs(SideA - SideB) < epsilon || Math.Abs(SideB - SideC) < epsilon ||
+            Math.Abs(SideA - SideC) < epsilon)
             return TypeOfTriangle.Isosceles;
 
         return TypeOfTriangle.Scalene; // The type must be scalene since no side is equal.
