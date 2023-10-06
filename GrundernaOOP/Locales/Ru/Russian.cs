@@ -1,10 +1,10 @@
-﻿using GrundernaOOP.Geometry;
+﻿using GrundernaOOP.Models;
 
-namespace GrundernaOOP.Locales.ru;
+namespace GrundernaOOP.Locales.Ru;
 
 public static class Russian
 {
-    public static readonly Dictionary<string, string> General = new()
+    public static readonly Dictionary<string, string> Headers = new()
     {
         { "Circle", "Круг" },
         { "Area", "Площадь" },
@@ -21,11 +21,11 @@ public static class Russian
         { "AngleB", "Угол Б" },
         { "AngleC", "Угол В" }
     };
-    
-    public static readonly Dictionary<Triangle.TypeOfTriangle, string> TriangleTypes = new()
+
+    public static readonly Dictionary<TypeOfTriangle, string> TriangleTypes = new()
     {
-        { Triangle.TypeOfTriangle.Equilateral, "Равносторонний" },
-        { Triangle.TypeOfTriangle.Isosceles, "Равнобедренный" },
-        { Triangle.TypeOfTriangle.Scalene, "Разносторонний" }
+        { TypeOfTriangle.Equilateral, "Равносторонний" },
+        { TypeOfTriangle.Isosceles, "Равнобедренный" },
+        { TypeOfTriangle.Scalene, "Разносторонний" }
     };
 }

@@ -1,34 +1,35 @@
-﻿using System.Text;
-using GrundernaOOP.Geometry;
-using GrundernaOOP.Locales.en;
-using GrundernaOOP.Locales.ru;
-using GrundernaOOP.Locales.sv;
+﻿using System.Globalization;
+using System.Text;
+using GrundernaOOP.Locales.En;
+using GrundernaOOP.Locales.Ru;
+using GrundernaOOP.Locales.Sv;
+using GrundernaOOP.Models;
 
 namespace GrundernaOOP.Locales;
 
 public static class Lang
 {
-    public static Dictionary<string, string> General { get; private set; } = null!;
-    public static Dictionary<Triangle.TypeOfTriangle, string> TriangleTypes { get; private set; } = null!;
+    public static Dictionary<string, string> Headers { get; private set; } = null!;
+    public static Dictionary<TypeOfTriangle, string> TriangleTypes { get; private set; } = null!;
 
     public static void SetLocale()
     {
         // Store current language ISO code.
-        var iso = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-        
+        var iso = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+
         switch (iso)
         {
             case "sv":
-                General = Swedish.General;
+                Headers = Swedish.Headers;
                 TriangleTypes = Swedish.TriangleTypes;
                 break;
             case "ru":
                 Console.OutputEncoding = Encoding.UTF8;
-                General = Russian.General;
+                Headers = Russian.Headers;
                 TriangleTypes = Russian.TriangleTypes;
                 break;
-            default: // English is chosen if no case covers the user's language.
-                General = English.General;
+            default:
+                Headers = English.Headers;
                 TriangleTypes = English.TriangleTypes;
                 break;
         }

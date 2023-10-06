@@ -1,10 +1,10 @@
-﻿using GrundernaOOP.Geometry;
+﻿using GrundernaOOP.Models;
 
-namespace GrundernaOOP.Locales.sv;
+namespace GrundernaOOP.Locales.Sv;
 
 public static class Swedish
 {
-    public static readonly Dictionary<string, string> General = new()
+    public static readonly Dictionary<string, string> Headers = new()
     {
         { "Circle", "Cirkel" },
         { "Radius", "Radie" },
@@ -21,11 +21,11 @@ public static class Swedish
         { "AngleB", "Vinkel B" },
         { "AngleC", "Vinkel C" }
     };
-    
-    public static readonly Dictionary<Triangle.TypeOfTriangle, string> TriangleTypes = new()
+
+    public static readonly Dictionary<TypeOfTriangle, string> TriangleTypes = new()
     {
-        { Triangle.TypeOfTriangle.Equilateral, "Liksidig" },
-        { Triangle.TypeOfTriangle.Isosceles, "Likbent" },
-        { Triangle.TypeOfTriangle.Scalene, "Oliksidig" }
+        { TypeOfTriangle.Equilateral, "Liksidig" },
+        { TypeOfTriangle.Isosceles, "Likbent" },
+        { TypeOfTriangle.Scalene, "Oliksidig" }
     };
 }

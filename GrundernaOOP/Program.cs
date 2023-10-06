@@ -1,11 +1,13 @@
 ﻿/*
  * Author: Theodor Hägg (.NET23)
  * Website: https://github.com/etheoo98/Labb5-GrundernaOOP
- * Date: October 3, 2023
+ * Date: October 6, 2023
  */
 
-using GrundernaOOP.Geometry;
+using GrundernaOOP.Factories;
 using GrundernaOOP.Locales;
+using GrundernaOOP.Models;
+using GrundernaOOP.Services;
 
 namespace GrundernaOOP;
 
@@ -13,40 +15,24 @@ internal static class Program
 {
     public static void Main()
     {
+        // Set application language.
         Lang.SetLocale();
 
-        Circle[] circles = { new(5), new(6) };
-        Triangle[] triangles = { new(5, 5, 4), new(12, 5) };
-
-        PrintCircleArray(circles);
-        PrintTriangleArray(triangles);
-    }
-
-    private static void PrintCircleArray(Circle[] circles)
-    {
-        var currentItem = 1;
-        
-        foreach (var circle in circles)
+        // Create an array of Circle objects.
+        Circle[] circles =
         {
-            Console.WriteLine($"{Lang.General["Circle"]} #{currentItem}:");
-            circle.PrintProperties();
-            
-            Console.WriteLine();
-            currentItem++;
-        }
-    }
+            CircleFactory.Create(5),
+            CircleFactory.Create(6)
+        };
 
-    private static void PrintTriangleArray(Triangle[] triangles)
-    {
-        var currentItem = 1;
-        
-        foreach (var triangle in triangles)
+        // Create an array of Triangle objects.
+        Triangle[] triangles =
         {
-            Console.WriteLine($"{Lang.General["Triangle"]} #{currentItem}:");
-            triangle.PrintProperties();
-            
-            Console.WriteLine();
-            currentItem++;
-        }
+            TriangleFactory.Create(new[] { 3, 5, 4 }),
+            TriangleFactory.Create(new[] { 5, 5 })
+        };
+
+        CircleService.PrintCircleArray(circles);
+        TriangleService.PrintTriangleArray(triangles);
     }
 }
