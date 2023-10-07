@@ -1,10 +1,23 @@
-﻿using GrundernaOOP.Locales;
+﻿using GrundernaOOP.Factories;
+using GrundernaOOP.Locales;
 using GrundernaOOP.Models;
 
 namespace GrundernaOOP.Services;
 
 public static class CircleService
 {
+    public static void Sample()
+    {
+        // Create an array of Circle objects.
+        Circle[] circles =
+        {
+            CircleFactory.Create(5),
+            CircleFactory.Create(6)
+        };
+        
+        PrintCircleArray(circles);
+    }
+    
     public static void PrintCircleArray(Circle[] circles)
     {
         for (var i = 0; i < circles.Length; i++)
@@ -17,9 +30,9 @@ public static class CircleService
     private static void PrintProperties(Circle circle)
     {
         Console.WriteLine($"{Lang.Headers["Radius"]}: {circle.Radius}");
-        Console.WriteLine($"{Lang.Headers["Area"]}: {Math.Round(circle.GetArea(), 2)}");
-        Console.WriteLine($"{Lang.Headers["Circumference"]}: {Math.Round(circle.GetCircumference(), 2)}");
-        Console.WriteLine($"{Lang.Headers["SphereArea"]}: {Math.Round(circle.GetSphereArea(), 2)}");
-        Console.WriteLine($"{Lang.Headers["SphereVolume"]}: {Math.Round(circle.GetSphereVolume(), 2)}\n");
+        Console.WriteLine($"{Lang.Headers["Area"]}: {Math.Round(circle.Area, 2)}");
+        Console.WriteLine($"{Lang.Headers["Circumference"]}: {Math.Round(circle.Circumference, 2)}");
+        Console.WriteLine($"{Lang.Headers["SphereArea"]}: {Math.Round(circle.SphereArea, 2)}");
+        Console.WriteLine($"{Lang.Headers["SphereVolume"]}: {Math.Round(circle.SphereVolume, 2)}\n");
     }
 }

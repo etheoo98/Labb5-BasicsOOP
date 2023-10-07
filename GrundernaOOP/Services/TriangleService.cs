@@ -1,10 +1,23 @@
-﻿using GrundernaOOP.Locales;
+﻿using GrundernaOOP.Factories;
+using GrundernaOOP.Locales;
 using GrundernaOOP.Models;
 
 namespace GrundernaOOP.Services;
 
 public static class TriangleService
 {
+    public static void Sample()
+    {
+        // Create an array of Triangle objects.
+        Triangle[] triangles =
+        {
+            TriangleFactory.Create(new[] { 3, 5, 4 }),
+            TriangleFactory.Create(new[] { 5, 5 })
+        };
+        
+        PrintTriangleArray(triangles);
+    }
+    
     public static void PrintTriangleArray(Triangle[] triangles)
     {
         for (var i = 0; i < triangles.Length; i++)
@@ -21,7 +34,7 @@ public static class TriangleService
                           $"{Lang.Headers["SideC"]}: {Math.Round(triangle.SideC, 2)}.");
 
         Console.WriteLine($"{Lang.Headers["TriangleType"]}: {Lang.TriangleTypes[triangle.GetTriangleType()]}");
-        Console.WriteLine($"{Lang.Headers["Area"]}: {Math.Round(triangle.GetArea(), 2)}");
+        Console.WriteLine($"{Lang.Headers["Area"]}: {Math.Round(triangle.Area, 2)}");
 
         var angles = triangle.GetAngles();
         Console.WriteLine($"{Lang.Headers["AngleA"]}: {Math.Round(angles.AngleA, 2)}\u00b0, " +

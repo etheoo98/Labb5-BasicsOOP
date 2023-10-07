@@ -1,5 +1,6 @@
 ﻿namespace GrundernaOOP.Models;
 
+// Enums
 public enum TypeOfTriangle
 {
     Equilateral,
@@ -9,8 +10,10 @@ public enum TypeOfTriangle
 
 public class Triangle
 {
+    // Class fields
     private double[] _sides = new double[3];
 
+    // Class properties
     public double[] Sides
     {
         get => _sides;
@@ -27,31 +30,36 @@ public class Triangle
     public double SideA => _sides[0];
     public double SideB => _sides[1];
     public double SideC => _sides[2];
+    public double Area
+    {
+        get
+        {
+            // Heron's formula: A = √[s(s - a)(s - b)(s - c)]
+            var semiperimeter = (SideA + SideB + SideC) / 2;
+            return Math.Sqrt(semiperimeter * (semiperimeter - SideA) * (semiperimeter - SideB) * (semiperimeter - SideC));
+        }
+    }
 
-    public Triangle(double sideA, double sideB) // Overloaded constructor.
+    // Overloaded constructors
+    public Triangle(double sideA, double sideB)
     {
         var sideC = GetSideC(sideA, sideB);
         Sides = new[] { sideA, sideB, sideC };
     }
 
-    public Triangle(double sideA, double sideB, double sideC) // Overloaded constructor.
+    public Triangle(double sideA, double sideB, double sideC)
     {
         Sides = new[] { sideA, sideB, sideC };
     }
 
+    // Method for calculating the unknown side's value.
     private static double GetSideC(double sideA, double sideB)
     {
         // Simplified Pythagorean theorem: c = √[a² + b²]
         return Math.Sqrt(Math.Pow(sideA, 2) + Math.Pow(sideB, 2));
     }
 
-    public double GetArea()
-    {
-        // Heron's formula: A = √[s(s - a)(s - b)(s - c)]
-        var s = (SideA + SideB + SideC) / 2; // Semiperimeter
-        return Math.Sqrt(s * (s - SideA) * (s - SideB) * (s - SideC));
-    }
-
+    // Methods for heavier calculations
     public (double AngleA, double AngleB, double AngleC) GetAngles()
     {
         /*
@@ -80,10 +88,11 @@ public class Triangle
 
         return (angleA, angleB, angleC);
     }
-
-    public TypeOfTriangle GetTriangleType() // Determine what type the triangle is.
+    
+    public TypeOfTriangle GetTriangleType()
     {
-        const double epsilon = 1E-12; // 1 * 10 to the power of -12 (0.000000000001).
+        // 1 * 10 to the power of -12 (0.000000000001).
+        const double epsilon = 1E-12;
 
         /*
          * An epsilon comparison is used rather than "==" due to possible loss of fraction caused
@@ -99,6 +108,7 @@ public class Triangle
             Math.Abs(SideA - SideC) < epsilon)
             return TypeOfTriangle.Isosceles;
 
-        return TypeOfTriangle.Scalene; // The type must be scalene since no side is equal.
+        // The type must be scalene since no side is equal.
+        return TypeOfTriangle.Scalene;
     }
 }

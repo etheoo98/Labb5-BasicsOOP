@@ -16,7 +16,7 @@ public static class Lang
     {
         // Store current language ISO code.
         var iso = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-
+        
         switch (iso)
         {
             case "sv":
