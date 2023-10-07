@@ -23,7 +23,7 @@ public class Triangle
                 _sides = value;
             else
                 throw new Exception(
-                    "Attempted to assign non-positive value(s) to Sides. All values must be greater than 0.");
+                    "Attempted to assign non-positive value to _sides (value must be greater than 0)");
         }
     }
 
