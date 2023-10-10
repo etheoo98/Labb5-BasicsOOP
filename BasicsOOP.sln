@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrundernaOOP", "GrundernaOOP\GrundernaOOP.csproj", "{59C0BF11-1934-4B23-9EA7-CCBCB061E8CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicsOOP", "BasicsOOP\BasicsOOP.csproj", "{59C0BF11-1934-4B23-9EA7-CCBCB061E8CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,6 @@
-﻿using GrundernaOOP.Models;
+﻿using BasicsOOP.Models;
 
-namespace GrundernaOOP.Locales.Sv;
+namespace BasicsOOP.Locales.Sv;
 
 public static class Swedish
 {

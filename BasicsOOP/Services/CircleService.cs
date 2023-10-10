@@ -1,8 +1,7 @@
-﻿using GrundernaOOP.Factories;
-using GrundernaOOP.Locales;
-using GrundernaOOP.Models;
+﻿using BasicsOOP.Locales;
+using BasicsOOP.Models;
 
-namespace GrundernaOOP.Services;
+namespace BasicsOOP.Services;
 
 public static class CircleService
 {
@@ -11,8 +10,8 @@ public static class CircleService
         // Create an array of Circle objects.
         Circle[] circles =
         {
-            CircleFactory.Create(5),
-            CircleFactory.Create(6)
+            new(5),
+            new(6)
         };
         
         PrintCircleArray(circles);

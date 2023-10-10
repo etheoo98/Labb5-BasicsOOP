@@ -1,6 +1,6 @@
-﻿using GrundernaOOP.Models;
+﻿using BasicsOOP.Models;
 
-namespace GrundernaOOP.Locales.Ru;
+namespace BasicsOOP.Locales.Ru;
 
 public static class Russian
 {

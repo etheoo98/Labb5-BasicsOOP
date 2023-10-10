@@ -1,8 +1,7 @@
-﻿using GrundernaOOP.Factories;
-using GrundernaOOP.Locales;
-using GrundernaOOP.Models;
+﻿using BasicsOOP.Locales;
+using BasicsOOP.Models;
 
-namespace GrundernaOOP.Services;
+namespace BasicsOOP.Services;
 
 public static class TriangleService
 {
@@ -11,8 +10,8 @@ public static class TriangleService
         // Create an array of Triangle objects.
         Triangle[] triangles =
         {
-            TriangleFactory.Create(new[] { 3, 5, 4 }),
-            TriangleFactory.Create(new[] { 5, 5 })
+            new(3, 5, 4),
+            new(5,5)
         };
         
         PrintTriangleArray(triangles);

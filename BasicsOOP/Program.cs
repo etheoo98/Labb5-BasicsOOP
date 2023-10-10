@@ -1,13 +1,13 @@
 ﻿/*
  * Author: Theodor Hägg (.NET23)
- * Website: https://github.com/etheoo98/Labb5-GrundernaOOP
+ * Website: https://github.com/etheoo98/Labb5-BasicsOOP
  * Date: October 6, 2023
  */
 
-using GrundernaOOP.Locales;
-using GrundernaOOP.Services;
+using BasicsOOP.Locales;
+using BasicsOOP.Services;
 
-namespace GrundernaOOP;
+namespace BasicsOOP;
 
 internal static class Program
 {

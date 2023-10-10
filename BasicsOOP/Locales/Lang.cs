@@ -1,11 +1,11 @@
 ﻿using System.Globalization;
 using System.Text;
-using GrundernaOOP.Locales.En;
-using GrundernaOOP.Locales.Ru;
-using GrundernaOOP.Locales.Sv;
-using GrundernaOOP.Models;
+using BasicsOOP.Locales.En;
+using BasicsOOP.Locales.Ru;
+using BasicsOOP.Locales.Sv;
+using BasicsOOP.Models;
 
-namespace GrundernaOOP.Locales;
+namespace BasicsOOP.Locales;
 
 public static class Lang
 {

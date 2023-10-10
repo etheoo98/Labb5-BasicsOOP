@@ -1,4 +1,4 @@
-﻿namespace GrundernaOOP.Models;
+﻿namespace BasicsOOP.Models;
 
 // Enums
 public enum TypeOfTriangle
