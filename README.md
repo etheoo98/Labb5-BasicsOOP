@@ -1,4 +1,4 @@
-# Labb5-GrundernaOOP
+# Labb5-BasicsOOP
 C# console application made for yet another beginners programming course. 
 
 ## Assignment description
