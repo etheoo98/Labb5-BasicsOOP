@@ -4,7 +4,7 @@
  * Date: October 6, 2023
  */
 
-using BasicsOOP.Locales;
+using BasicsOOP.Models;
 using BasicsOOP.Services;
 
 namespace BasicsOOP;
@@ -13,11 +13,22 @@ internal static class Program
 {
     public static void Main()
     {
-        // Set application language.
-        Lang.SetLocale();
+        // Create an array of Circle objects.
+        Circle[] circles =
+        {
+            new(5),
+            new(6)
+        };
         
-        // A demonstration of the program.
-        CircleService.Sample();
-        TriangleService.Sample();
+        CircleService.PrintCircleArray(circles);
+        
+        // Create an array of Triangle objects.
+        Triangle[] triangles =
+        {
+            new(3, 5, 4),
+            new(5,5)
+        };
+        
+        TriangleService.PrintTriangleArray(triangles);
     }
 }
