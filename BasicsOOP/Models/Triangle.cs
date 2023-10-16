@@ -19,11 +19,10 @@ public class Triangle
         get => _sides;
         set
         {
-            if (value[0] > 0 && value[1] > 0 && value[2] > 0)
-                _sides = value;
-            else
-                throw new Exception(
-                    "Attempted to assign non-positive value to _sides (value must be greater than 0).");
+            if (value[0] <= 0 || value[1] <= 0 || value[2] <= 0)
+                throw new Exception("Attempted to assign non-positive value to _sides (value must be " +
+                                    "greater than 0)."); 
+            _sides = value;
         }
     }
 
@@ -52,7 +51,7 @@ public class Triangle
         Sides = new[] { sideA, sideB, sideC };
     }
     
-    private double GetSideC(double sideA, double sideB)
+    private static double GetSideC(double sideA, double sideB)
     {
         // Pythagoras theorem: c = √[a² + b²]
         return Math.Sqrt(Math.Pow(sideA, 2) + Math.Pow(sideB, 2));

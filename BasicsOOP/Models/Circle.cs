@@ -11,11 +11,10 @@ public class Circle
         get => _radius;
         set
         {
-            if (value > 0)
-                _radius = value;
-            else
-                throw new Exception(
-                    "Attempted to assign non-positive value to _radius (value must be greater than 0).");
+            if (value <= 0)
+                throw new Exception("Attempted to assign non-positive value to _radius (value must be " +
+                                    "greater than 0).");
+            _radius = value;
         }
     }
     
